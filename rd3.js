@@ -38,5 +38,5 @@ function render(inputFile, outputFile) {
 
   console.log('Rendering ' + outputFile);
   page.viewportSize = {width: opt['width'], height: opt['height']};
-  page.render(outputFile, {format: 'png'});
+  page.render(outputFile, opt['format']);
 }
