@@ -23,6 +23,7 @@ function renderingLoop() {
     try {
       render(inputFile, outputFile);
     } catch(e) {
+      console.log(e);
     } finally {
       fs.remove(inputFile);
     }
@@ -37,6 +38,8 @@ function render(inputFile, outputFile) {
   var opt = page.evaluate(fs.read(inputFile));
 
   console.log('Rendering ' + outputFile);
+  var tmp = outputFile + '.tmp';
   page.viewportSize = {width: opt['width'], height: opt['height']};
-  page.render(outputFile, opt['format']);
+  page.render(tmp, {format: 'png'});
+  fs.move(tmp, outputFile);
 }
