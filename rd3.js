@@ -29,7 +29,7 @@ function renderingLoop() {
     }
   }
 
-  setTimeout(renderingLoop, 10);
+  setTimeout(renderingLoop, 5);
 }
 
 function render(inputFile, outputFile) {
